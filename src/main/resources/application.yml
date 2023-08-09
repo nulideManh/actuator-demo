@@ -1,0 +1,36 @@
+spring:
+#  main:
+#    allow-bean-definition-overriding: 'true'
+
+  redis:
+    # ip
+    host: localhost
+    port: 6379
+    # Redis password
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 30
+        min-idle: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: ''
+  metrics:
+    enable:
+      redis:
+        commands: 'true'
+        calls: 'true'
+
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: 'true'
+    metrics:
+      enabled: 'true'
+
